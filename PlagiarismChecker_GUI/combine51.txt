@@ -1,0 +1,71 @@
+package Algorithms;
+package GUI;
+package GUI;
+
+
+
+
+import javafx.application.Application;
+import java.io.File;
+import javafx.fxml.FXMLLoader;
+public class Controller {
+import javafx.scene.Parent;
+import java.util.ArrayList;
+import javafx.scene.Scene;
+}
+import javafx.stage.Stage;
+
+
+
+
+public class Files {
+public class Main extends Application {
+    ArrayList<String> file_references = new ArrayList<>();
+    @Override
+    ArrayList<String> file_name = new ArrayList<>();
+    public void start(Stage primaryStage) throws Exception{
+    File[] files;
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+    public ArrayList<String> getFiles(String dir) {
+        primaryStage.setTitle("Similarity Program Commit 13");
+        //Returns all directory references of the scanned files
+        primaryStage.setScene(new Scene(root));
+        readDirectory(dir);
+        primaryStage.setResizable(false);
+        return file_references;
+        primaryStage.show();
+    }
+    }
+
+
+    public ArrayList<String> getFileNames() {
+
+        //Returns all file names of the scanned files
+    public static void main(String[] args) {
+        return file_name;
+        launch(args);
+    }
+    }
+
+}
+    public void readDirectory(String dir) {
+        files = new File(dir).listFiles();
+        assert files != null;
+        for (File file : files) {
+            //If file is indeed a file, store file_names and full directory paths
+            //files = directory reference
+            //file_name = display name reference
+            if (file.isFile()) {
+                this.file_references.add(file.toString());
+                this.file_name.add(" ");
+            }
+
+            //If "file" is directory
+            else if (file.isDirectory()) {
+                readDirectory(dir + "/" + file.getName());
+                this.file_name.add(file.getName());
+            }
+        }
+    }
+
+}

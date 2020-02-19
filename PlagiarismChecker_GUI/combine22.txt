@@ -1,0 +1,422 @@
+package sample;
+package sample;
+package sample;
+
+package sample;
+import javafx.scene.control.Label;
+
+import javafx.scene.layout.StackPane;
+package sample;
+import javafx.scene.paint.Color;
+import javafx.application.Application;
+import javafx.scene.shape.Rectangle;
+
+
+import javafx.fxml.FXMLLoader;
+public class MetricsData {
+
+    double programVocabolary;
+import javafx.scene.Parent;
+    double programLength;
+import javafx.scene.control.Label;
+    double programVolume;
+import javafx.scene.Scene;
+    double programLevel;
+
+    double programDifficulty;
+import javafx.stage.Stage;
+    double programEffort;
+import javafx.scene.layout.StackPane;
+    MetricsData() {
+
+        programDifficulty = 0;
+
+        programEffort = 0;
+public class Main extends Application {
+        programLength = 0;
+import javafx.scene.paint.Color;
+        programLevel = 0;
+
+        programVocabolary = 0;
+import javafx.fxml.FXML;
+        programVolume = 0;
+    @Override
+    }
+import javafx.scene.shape.Rectangle;
+    public void setProgramDifficulty(double val) {
+    public void start(Stage primaryStage) throws Exception{
+        this.programDifficulty = val;
+import javafx.fxml.FXML;
+    }
+        Parent root = FXMLLoader.load(getClass().getResource("ComparisonMatrix.fxml"));
+    public void setProgramVocabolary(double val) {
+
+        this.programVocabolary = val;
+        primaryStage.setTitle("Comparison Matrix");
+    }
+import javafx.fxml.Initializable;
+    public void setProgramLength(double val) {
+        primaryStage.setScene(new Scene(root, 1280, 800));
+        this.programLength = val;
+public class DataEntry {
+    }
+        primaryStage.show();
+    public void setProgramVolume(double val) {
+import javafx.geometry.Insets;
+        this.programVolume = val;
+    }
+    }
+    float comparisonScore;
+    public void setProgramLevel(double val) {
+    public static void main(String[] args) {
+        this.programLevel = val;
+import javafx.geometry.Pos;
+    }
+        launch(args);
+    public void setProgramEffort(double val) {
+    Rectangle rect;
+        this.programEffort = val;
+    }
+    }
+import javafx.scene.control.Label;
+
+}
+    public StackPane getDifficultyPane() {
+    Label label = new Label();
+        Rectangle rect = new Rectangle(50,30);
+import javafx.scene.control.Label;
+        Label label = new Label(String.valueOf(programDifficulty));
+    StackPane stackPane;
+        label.setTextFill(Color.WHITE);
+import javafx.scene.control.ScrollPane;
+        return new StackPane(rect,label);
+
+    }
+import javafx.scene.control.ListView;
+
+    DataEntry(float entry) {
+    public StackPane getLevelPane() {
+import javafx.scene.input.MouseEvent;
+        Rectangle rect = new Rectangle(50,30);
+        comparisonScore = entry;
+        Label label = new Label(String.valueOf(programLevel));
+import javafx.scene.control.ScrollPane;
+        label.setTextFill(Color.WHITE);
+        rect = new Rectangle(50,30);
+        return new StackPane(rect,label);
+import javafx.scene.layout.AnchorPane;
+    }
+        label.setText(String.valueOf(entry));
+
+import javafx.scene.layout.*;
+    public StackPane getEffortPane() {
+        label.setTextFill(Color.WHITE);
+        Rectangle rect = new Rectangle(50,30);
+import javafx.scene.layout.GridPane;
+        Label label = new Label(String.valueOf(programEffort));
+        setRectColor(comparisonScore, rect);
+        label.setTextFill(Color.WHITE);
+import javafx.scene.paint.Color;
+        return new StackPane(rect,label);
+        stackPane = new StackPane(rect,label);
+    }
+import javafx.scene.layout.StackPane;
+
+    }
+    public StackPane getVolumePane() {
+import javafx.scene.shape.Rectangle;
+        Rectangle rect = new Rectangle(50,30);
+
+        Label label = new Label(String.valueOf(programDifficulty));
+import javafx.scene.layout.VBox;
+        label.setTextFill(Color.WHITE);
+    public StackPane getStackPane() {
+        return new StackPane(rect,label);
+import javafx.stage.DirectoryChooser;
+    }
+        return this.stackPane;
+
+
+    public StackPane getLengthPane() {
+    }
+        Rectangle rect = new Rectangle(50,30);
+import javafx.stage.FileChooser;
+        Label label = new Label(String.valueOf(programLength));
+
+        label.setTextFill(Color.WHITE);
+
+        return new StackPane(rect,label);
+    public void setRectColor(float score, Rectangle rect) {
+    }
+import javafx.stage.Stage;
+
+
+    public StackPane getVocabolaryPane() {
+
+        Rectangle rect = new Rectangle(50,30);
+        rect.setFill(Color.rgb( 255,255-Math.round(255*score),255-Math.round(255*score)));
+        Label label = new Label(String.valueOf(programVocabolary));
+
+        label.setTextFill(Color.WHITE);
+
+        return new StackPane(rect,label);
+
+    }
+//        if(score < .20 || score == .20)
+}
+import java.awt.*;
+//            rect.setFill(Color.INDIGO);
+public class Controller {
+//        else if(score < .40 || score == .4)
+import java.io.BufferedReader;
+//            rect.setFill(Color.BLUE);
+
+//        else if(score < .60 || score == .6)
+import java.io.File;
+//            rect.setFill(Color.GREEN);
+    static GridPane matrixBase;
+//        else if(score < .80 || score == .8)
+import java.io.FileReader;
+//            rect.setFill(Color.ORANGE);
+
+//        else if(score > .80 || score == 1.0)
+import java.io.IOException;
+//            rect.setFill(Color.RED);
+
+    }
+import java.util.ArrayList;
+}
+    @FXML
+import java.util.Objects;
+    private AnchorPane scrollP;
+
+
+public class Controller {;
+    @FXML
+    @FXML ScrollPane scrollPane = new ScrollPane();
+    void chooseDirectoryE(MouseEvent event) {
+    @FXML Label prompt;                                         // program status
+
+    @FXML Label fileCountLabel;
+    }
+    @FXML ListView<String> listView;
+
+    GridPane gridPane;                      // for matrix display
+    @FXML
+    ArrayList<MyFile> filesDirectory;
+    private VBox mainLayout;
+    File folder;                                                // submission folder
+
+
+
+    @FXML public void getFolder() throws IOException {
+
+        filesDirectory = new ArrayList<>();
+
+        DirectoryChooser folderChooser = new DirectoryChooser();
+    @FXML
+        folderChooser.setInitialDirectory(new File("Src\\sample"));
+    void generateMatrixE(MouseEvent event) {
+        folder = folderChooser.showDialog(null);
+        Similarity.listStudents();
+        prompt.setText("Folder selected: " + folder.getName());
+
+        listView.getItems().clear();
+        matrixBase = new GridPane();
+        for (File file : Objects.requireNonNull(folder.listFiles())) {
+        scrollP.getChildren().add(matrixBase);
+            MyFile temp = new MyFile(file);
+
+            System.out.println(file.getName());
+
+            filesDirectory.add(temp);
+        matrixBase.setHgap(10); //horizontal gap in pixels => that's what you are asking for
+            listView.getItems().add(temp.getFile().getName());
+         matrixBase.setVgap(10); //vertical gap in pixels
+        }
+        matrixBase.setPadding(new Insets(10, 10, 10, 10));
+        fileCountLabel.setText(filesDirectory.size() + " files found.");
+
+    }
+        for ( int i = 0 ; i < Similarity.students.size() ; i++ ){
+
+
+    @FXML public void showMetrics(){
+            Label name = new Label(Similarity.students.get(i).name);
+        return;
+            name.setWrapText(true);
+    }
+            name.setRotate(90.0);
+
+            name.setStyle(  "  -fx-pref-width:100; -fx-pref-height: 100");
+    @FXML public void showMatrix() throws IOException {
+            GridPane.setConstraints(name,i+1,1);
+        gridPane = new GridPane();
+
+        if(folder == null) {
+            matrixBase.getChildren().add(name);
+            prompt.setText("Please select submission folder first.");
+        }
+            return;
+
+        }
+
+        scrollPane.setContent(gridPane);
+        for( int i = 0; i< Similarity.students.size(); i++ ){
+        scrollPane.setLayoutX(0);
+
+        scrollPane.setLayoutY(120);
+
+        getMatrix(folder);
+            Label name = new Label(Similarity.students.get(i).name);
+    }
+            name.setWrapText(true);
+
+            name.setStyle(  "  -fx-pref-width:100; -fx-pref-height: 100");
+    public void getMatrix(File folder) throws IOException {
+            GridPane.setConstraints(name,0,i+3);
+        Test Functions = new Test();
+
+        DataEntry[][] dataEntries = new DataEntry[filesDirectory.size()][filesDirectory.size()];
+            matrixBase.getChildren().add(name);
+        for (MyFile myFile : filesDirectory) {
+
+            constructList(myFile.getFile(),myFile.wordEntry,myFile.lineEntry);
+
+        }
+            for(int j = 0 ; j < Similarity.students.size(); j++ ){
+        for(int i = 0; i<filesDirectory.size(); i++) {
+
+            Rectangle rect = new Rectangle(50,30);
+                StackPane cell = new StackPane();
+            rect.setFill(Color.TRANSPARENT);
+
+            Label label = new Label(filesDirectory.get(i).getFile().getName());
+
+            label.setAlignment(Pos.CENTER);
+
+            StackPane sp = new StackPane(rect,label);
+
+            gridPane.add(sp,0,i+1);
+                Label result = new Label(Similarity.getSimilarity( Similarity.students.get(i), Similarity.students.get(j) ) );
+        }
+
+        for(int i = 0; i<filesDirectory.size(); i++) {
+                Double dhue = Double.parseDouble( Similarity.getSimilarity( Similarity.students.get(i), Similarity.students.get(j)) );
+            Rectangle rect = new Rectangle(50,30);
+                int hue = (int)(255-dhue*255);
+            rect.setFill(Color.TRANSPARENT);
+
+            Label label = new Label(filesDirectory.get(i).getFile().getName());
+                result.setStyle("-fx-font-size: 10;");
+            label.setAlignment(Pos.CENTER);
+                cell.setStyle(  "  -fx-pref-width:50; -fx-pref-height: 50;-fx-background-color: rgb(255,"+hue+","+hue+");");
+            StackPane sp = new StackPane(rect,label);
+                cell.getChildren().add(result);
+            for (int j = 0; j < filesDirectory.size(); j++) {
+                GridPane.setConstraints(cell,j+1,i+3);
+                if (j == 0) {
+                matrixBase.getChildren().add(cell);
+                    gridPane.add(sp, i+1, 0);
+            }
+
+
+                    float a = Functions.getSimilarity(filesDirectory.get(i).getString(),filesDirectory.get(j).getString());
+
+
+
+                    // a = compare(filesDirectory.get(i).wordEntry, filesDirectory.get(j).wordEntry);
+        }
+                    dataEntries[i][j] = new DataEntry((float) Math.round(a * 100) / 100);
+
+                    gridPane.add(dataEntries[i][j].getStackPane(), i+1, j+1);
+
+                }
+
+                else {
+    }
+                    float a = Functions.getSimilarity(filesDirectory.get(i).getString(),filesDirectory.get(j).getString());
+
+                    dataEntries[i][j] = new DataEntry((float) Math.round(a * 100) / 100);
+}
+                    gridPane.add(dataEntries[i][j].getStackPane(), i+1, j+1);
+                }
+            }
+            gridPane.getRowConstraints().add(new RowConstraints(30));
+            gridPane.getColumnConstraints().add(new ColumnConstraints(50));
+        }
+        for(int i = 0; i<filesDirectory.size(); i++) {
+            Rectangle rect = new Rectangle(50,30);
+            rect.setFill(Color.TRANSPARENT);
+            Label label = new Label(filesDirectory.get(i).getFile().getName());
+            label.setAlignment(Pos.CENTER);
+            StackPane sp = new StackPane(rect,label);
+            gridPane.add(sp,i+1,filesDirectory.size()+1);
+        }
+        for(int i = 0; i<filesDirectory.size(); i++) {
+            Rectangle rect = new Rectangle(50,30);
+            rect.setFill(Color.TRANSPARENT);
+            Label label = new Label(filesDirectory.get(i).getFile().getName());
+            label.setAlignment(Pos.CENTER);
+            StackPane sp = new StackPane(rect,label);
+            gridPane.add(sp,filesDirectory.size()+1,i+1);
+        }
+    }
+
+
+    public void constructList(File file, ArrayList<String> wordList, ArrayList<String> lineList) throws IOException {
+        if(file.isDirectory()) {
+            for(File entry : Objects.requireNonNull(file.listFiles())) {
+                constructList(entry,wordList,lineList);
+            }
+        }
+        else if (file.getName().toLowerCase().endsWith(".cpp") || file.getName().toLowerCase().endsWith(".java")) {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+                lineList.add(line);
+                line = line.replaceAll("[.(]"," ");
+                String[] words = line.split(" ");
+                for(String word : words) {
+                    word = word.replaceAll("\\W", "");
+                    wordList.add(word.trim());
+                }
+                for(int i=0 ; i < wordList.size() ; i++) {
+                    if(wordList.get(i).equals("")) wordList.remove(i);
+                }
+            }
+            br.close();
+        }
+    }
+
+
+    public float compare(ArrayList<String> list1, ArrayList<String> list2) {
+        int totalWords, count;
+        ArrayList<String> temp1 = new ArrayList<>(list1);
+        ArrayList<String> temp2 = new ArrayList<>(list2);
+
+        System.out.println(temp1);
+        System.out.println(temp2);
+
+        if(temp1.size() > temp2.size()) {
+            System.out.println("TEMP 1 BIGGER");
+            System.out.println("TEMP1 " + temp1.size());
+            System.out.println("TEMP2 " + temp2.size() + "\n");
+            totalWords = temp1.size();
+            temp2.retainAll(temp1);
+            count = temp2.size();
+        }
+
+        else {
+            System.out.println("TEMP 2 BIGGER");
+            System.out.println("TEMP1 " + temp1.size());
+            System.out.println("TEMP2 " + temp2.size() + "\n");
+            totalWords = temp2.size();
+            temp1.retainAll(temp2);
+            count = temp1.size();
+        }
+
+        return (float) count/totalWords;
+    }
+}

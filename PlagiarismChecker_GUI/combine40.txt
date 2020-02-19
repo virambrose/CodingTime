@@ -1,0 +1,195 @@
+import java.io.BufferedReader;
+import java.io.*;
+package ScratchWork;
+
+package ScratchWork;
+public class Similaritor {
+
+
+package ScratchWork;
+    private static float DifferenceScore (int compare1, int compare2){
+public class TestClass {
+        //this function will return in percent
+
+        float difference = Math.abs(compare1 - compare2);
+
+        float average = (compare1 + compare2)/2;
+import java.io.FileReader;
+
+
+        return (difference/average)*100;
+public class SimilarityAlgorithm {
+    }
+    public static void main(String[] args)  {
+
+
+    private static float ScoreSimilarity (String filepath1, String filepath2) throws IOException {
+        // TODO code application logic here
+
+
+        GetCharacters charProg1 = new GetCharacters(filepath1);
+        Character x ='x';
+        GetCharacters charProg2 = new GetCharacters(filepath2);
+import java.io.IOException;
+
+        String sample = "adoru";
+        GetLines lineProgram1 = new GetLines(filepath1);
+    
+        GetLines lineProgram2 = new GetLines(filepath2);
+
+
+import java.io.FileReader;
+        int sumProg1 = 0;
+        System.out.println("The HashCode of x: " + x.hashCode());
+        int sumProg2 = 0;
+
+
+        Character x2 = sample.charAt(4);
+        int lineProg1 = 0;
+
+        int lineProg2 = 0;
+        System.out.println(sample.hashCode());
+
+}
+        //for the java files
+    }
+        lineProg1 = lineProgram1.ReturnNumLines();
+import java.io.IOException;
+        lineProg2 = lineProgram2.ReturnNumLines();
+}
+
+public class GetLines {
+        sumProg1 = charProg1.TotalCharacterFile();
+import java.util.LinkedList;
+        sumProg2 = charProg2.TotalCharacterFile();
+
+
+
+        float scoreSimiliarity = (float) (100 - ((DifferenceScore(lineProg1, lineProg2) * 0.7) + (DifferenceScore(sumProg1, sumProg2) * 0.3) ));
+    private BufferedReader progLines;
+
+public class CharGetter {
+        return scoreSimiliarity;
+
+    }
+
+
+    GetLines (String filepath) throws IOException {
+    private static void Print2DArray(float array[][], String arraySecond[], int length){
+    FileReader file;
+        //length is the size of the matrix
+        progLines= new BufferedReader(new FileReader(filepath));
+
+
+        System.out.print("\t\t\t");
+    }
+        for (String name : arraySecond) {
+    LinkedList<Character> characters;
+            System.out.printf("%-11s ", name);
+
+        }
+
+        System.out.println();
+    Integer ReturnNumLines() throws IOException{
+
+    //this class is for getting the characters from the file program
+        for (int i = 0; i < length; i++) {
+        //this function will return the number of lines in the given program file
+
+    //it shall exclude any spaces, nextline and variable name
+            System.out.printf("%-10s \t",arraySecond[i]);
+
+
+
+            for (int j = 0 ; j < length ; j++){
+        int line = 0 ;
+
+    CharGetter(String filename) throws IOException {
+                System.out.printf("%7.2f \t",array[i][j]);
+
+
+        file = new FileReader(filename);
+            }
+        while(progLines.readLine() != null) line++;
+
+    }
+            System.out.println();
+        return line;
+
+
+        }
+    }
+
+
+    }
+}
+
+    void ReturnProcessedCharacters () throws IOException{
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+        int tempInt = 0;
+        // TODO code application logic here
+        int sum =0;
+
+
+        float matrixSimilarity[][];
+        while(tempInt != -1){
+        String names[];
+            tempInt = file.read();
+        File folder = new File("./src/Programs_To_Compare");
+
+        matrixSimilarity = new float[folder.listFiles().length][folder.listFiles().length];
+            if(tempInt != 32 && tempInt != 13 && tempInt != 10) sum += tempInt;
+        names = new String[folder.listFiles().length];
+        }
+
+    }
+        float highestScore = 0;
+
+        int jIndex = 0;
+}
+        int iIndex =0;
+
+        System.out.println("File names inside the directory:");
+        for (int i = 0; i < folder.listFiles().length; i++) {
+            String temp [] = folder.listFiles()[i].getName().split("_");
+            names[i] = temp[0];
+            System.out.println(names[i] + " : " + folder.listFiles()[i].getName());
+        }
+
+        System.out.println("\n\nPairs with more than 90 as score:");
+        for (int i = 0; i < folder.listFiles().length ; i++) {
+
+            for (int j = 0; j<folder.listFiles().length;j++){
+
+                matrixSimilarity[i][j] = (ScoreSimilarity(folder.listFiles()[i].getAbsolutePath(),folder.listFiles()[j].getAbsolutePath())/100);
+
+                if(matrixSimilarity[i][j] * 100 > 90 && matrixSimilarity[i][j] * 100 < 100){
+                    System.out.printf("%s and %s with a score of %.2f\n", names[i],names[j],matrixSimilarity[i][j] *100);
+
+                }
+
+                if(matrixSimilarity[i][j] * 100>highestScore && matrixSimilarity[i][j] *100 != 100){
+                    highestScore = matrixSimilarity[i][j] *100;
+                    jIndex = j;
+                    iIndex = i;
+                }
+
+            }
+        }
+
+        System.out.printf("\n\n\nPair with the highest score is %s and %s with the score of %.2f",  names[iIndex], names[jIndex], matrixSimilarity[iIndex][jIndex] * 100);
+
+        /*
+        System.out.println("File names with the corresponding index in the matrix array");
+        for (int i = 0; i < folder.listFiles().length ; i++) {
+            System.out.println(i + " : " + folder.listFiles()[i].getName());
+
+        }*/
+
+        System.out.println("\n\nMatrix:");
+
+        Print2DArray(matrixSimilarity, names, folder.listFiles().length);
+
+    }
+
+}

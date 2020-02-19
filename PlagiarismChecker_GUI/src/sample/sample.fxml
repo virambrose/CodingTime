@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -10,9 +11,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<GridPane alignment="center" hgap="10" prefHeight="768.0" prefWidth="1649.0" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="663.0" prefWidth="1297.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -20,19 +23,32 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <BorderPane prefHeight="786.0" prefWidth="1673.0">
+      <BorderPane prefHeight="663.0" prefWidth="1297.0">
          <top>
             <HBox prefHeight="0.0" prefWidth="526.0" BorderPane.alignment="CENTER">
                <children>
-                  <Region prefHeight="26.0" prefWidth="78.0" HBox.hgrow="ALWAYS" />
-                  <TextField fx:id="directoryText" prefHeight="26.0" prefWidth="464.0" promptText="Directory...">
+                  <Region prefHeight="26.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                  <Label text="Legends:" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="20.0" stroke="BLACK" strokeType="INSIDE" width="35.0" />
+                  <Label text="Bad" />
+                  <Region prefHeight="40.0" prefWidth="14.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="20.0" stroke="BLACK" strokeType="INSIDE" width="35.0" />
+                  <Label text="Good" />
+                  <Region prefHeight="40.0" prefWidth="15.0" />
+                  <TextField fx:id="directoryText" prefHeight="26.0" prefWidth="359.0" promptText="Input Directory of Folder...">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </TextField>
-                  <Region prefHeight="26.0" prefWidth="174.0" />
-                  <Button mnemonicParsing="false" onAction="#compute" text="Proceed" />
-                  <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Region prefHeight="26.0" prefWidth="61.0" />
+                  <Button mnemonicParsing="false" onAction="#compute" prefHeight="26.0" prefWidth="100.0" text="Submit" />
+                  <Region prefHeight="40.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Note: Remember that this program compares to every file in the directory, meaning that it will compare to itself also. The diagonal will result to a score of 1.00." wrappingWidth="243.56971740722656">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <Region layoutX="342.0" layoutY="20.0" prefHeight="40.0" prefWidth="103.0" />
                </children>
                <BorderPane.margin>
                   <Insets />
@@ -43,7 +59,7 @@
             </HBox>
          </top>
          <center>
-            <AnchorPane fx:id="newPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <AnchorPane fx:id="newPane" prefHeight="449.0" prefWidth="902.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

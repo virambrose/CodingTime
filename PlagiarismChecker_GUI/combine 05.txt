@@ -1,0 +1,226 @@
+#include <iostream>
+// This is the revised version of my plagiarism checker program. It is better than the previous version as it now uses 
+#include <string.h>
+// a line checking algorithm rather than a letter based one. The program would check each 
+#include <dirent.h>
+// line in the first file and it would check whether or not the same line is present anywhere in the second file. 
+
+
+//This is the updated version of the Plagiarism Checker v2
+// The program is also capable of calling files from a directory so that multiple files can be checked at once.
+//The changes here include the fix for the trapping for my .exe file
+
+//Instead of having the exact file numbering in the list be hard coded, the file name instead will be used and be skipped over
+// I would also like to add that on 
+//If the code should read the said name like in Line 60.
+
+
+// line 25: if (i == 16){
+//The code also is arranged more neatly where the names of the code owners are seen in the left side of the screen.
+
+
+// and on 
+//Furthermore, the comparison and printing part of the code has been turned into a function instead of having everything cluttered into
+
+//The main() function.
+// line 29: if (j == 16){
+
+
+
+// are lines of code to make sure that the .exe or executable file which normally comes up after running a 
+using namespace std;
+// Dev C++ file would be excluded in the checking. The number 16 is the exact placement of where 
+
+// the executable file will be in the directory and it is specifically set to the specification of my directory.
+double comparison(string con1[], string con2[]){
+
+	
+#include <iostream>
+	double equalcounter = 0;
+#include <string.h>
+	double notequalcounter = 0;
+#include <dirent.h>
+	
+
+	for (int i = 0; i < 1000; i++){
+using namespace std;
+		int g = equalcounter;
+
+		if (con1[i] == ""){
+int main(){
+			continue;
+	
+		}
+	struct dirent *dc;
+		for (int j = 0; j < 1000; j++){
+	string file[100] = "";
+			if (con1[i] == con2[j]){
+	int count = 0;
+				equalcounter++;
+	
+				break;
+	DIR *de = opendir(".");
+			}
+
+		}
+    while ((dc = readdir(de)) != NULL){
+		if (g == equalcounter){
+    	file[count] += dc->d_name; 
+			notequalcounter++;
+    	count++;
+		}
+	}
+	}
+    closedir(de); 
+	
+	
+	double total = equalcounter + notequalcounter;
+	char ch, file1[50], file2[50];
+	
+	FILE *fp;
+	double compare = equalcounter / total * 100;
+	
+	
+	for (int i = 2; i < 38; i++){
+	return compare;
+		if (i == 16){
+			
+			continue;
+}
+		}
+
+		for (int j = 2; j < 38; j++){
+int main(){
+			if (j == 16){
+	
+				continue;
+	struct dirent *dc;
+			}
+	string file[100] = "";
+			string content1[1000] = "", content2[1000] = "";
+	int count = 0;
+			
+	
+			strcpy(file1, file[i].c_str());
+	DIR *de = opendir(".");
+			
+
+			fp = fopen(file1, "r");
+    while ((dc = readdir(de)) != NULL){
+			
+    	file[count] += dc->d_name; 
+			int c = 0;
+    	count++;
+			while ((ch = fgetc(fp)) != EOF){
+	}
+				if (ch == '\n' || ch == '  '){
+    closedir(de); 
+					c++;
+	
+					continue;
+	char ch, file1[50], file2[50];
+				}
+	FILE *fp;
+				else{
+	
+					content1[c] += ch;
+	for (int i = 2; i < 39; i++){
+				}
+		if (file[i] == "JM.exe"){
+			}
+			continue;
+			
+		}
+			fclose(fp);
+
+			
+		else{
+			strcpy(file2, file[j].c_str());
+			printf("%16s",file[i].c_str());
+			fp = fopen(file2,"r");
+		}
+			c = 0;
+		for (int j = 2; j < 39; j++){
+			while ((ch = fgetc(fp)) != EOF){
+			if (file[j] == "JM.exe"){
+				if (ch == '\n' || ch == '  '){
+				continue;
+					c++;
+			}
+					continue;
+
+				}
+			string content1[1000] = "", content2[1000] = "";
+				else{
+			
+					content2[c] += ch;
+			strcpy(file1, file[i].c_str());
+				}
+			
+			}
+			fp = fopen(file1, "r");
+	
+			
+			fclose(fp);
+			int c = 0;
+			
+			while ((ch = fgetc(fp)) != EOF){
+			double equalcounter = 0;
+				if (ch == '\n' || ch == '  '){
+			double notequalcounter = 0;
+					c++;
+	
+					continue;
+			for (int i = 0; i < 1000; i++){
+				}
+				int g = equalcounter;
+				else{
+				if (content1[i] == ""){
+					content1[c] += ch;
+					continue;
+				}
+				}
+			}
+				for (int j = 0; j < 100; j++){
+			
+					if (content1[i] == content2[j]){
+			fclose(fp);
+						equalcounter++;
+			
+						break;
+			strcpy(file2, file[j].c_str());
+					}
+			fp = fopen(file2,"r");
+				}
+			c = 0;
+				if (g == equalcounter){
+			while ((ch = fgetc(fp)) != EOF){
+					notequalcounter++;
+				if (ch == '\n' || ch == '  '){
+				}
+					c++;
+			}
+					continue;
+	
+				}
+			double total = equalcounter + notequalcounter;
+				else{
+	
+					content2[c] += ch;
+			double comparison = equalcounter / total * 100;
+				}
+			
+			}
+			printf("%4.0f ",comparison);
+	
+		}
+			fclose(fp);
+		cout << endl;
+
+	}
+			printf("%4.0f ",comparison(content1,content2));
+}
+		}
+		cout << endl;
+	}
+}

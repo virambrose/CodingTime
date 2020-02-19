@@ -1,0 +1,59 @@
+package Backend;
+package Backend;
+
+
+import java.io.File;
+import java.util.ArrayList;
+import java.io.IOException;
+
+
+public class Matrix {
+public class MainOperations {
+    private ArrayList<ArrayList<Float>> matrix = new ArrayList<>();
+
+    private ArrayList<Float> arrayTemp;
+
+
+    public static void main(String[] args) throws IOException {
+    public void newMatrix()
+
+    {
+        SystemMetrics metrics = new SystemMetrics();
+        matrix= new ArrayList<>();
+
+    }
+        File masterFile = new File("Codes");  //for our files [Codes or src only]
+
+        metrics.createSystemMetricsTable(masterFile);  //check this for other's files
+    public ArrayList<ArrayList<Float>> getMatrix() {
+
+        return matrix;
+
+    }
+    }
+
+
+    public void setNewArray() {
+
+        arrayTemp= new ArrayList<>();
+}
+    }
+
+
+    public void addArray(float value) {
+        arrayTemp.add(value);
+    }
+
+    public void setMatrix() {
+        matrix.add(arrayTemp);
+    }
+
+    public int arraySize(){
+        return arrayTemp.size();
+    }
+
+    public int matrixSize(){
+        return matrix.size();
+    }
+
+}

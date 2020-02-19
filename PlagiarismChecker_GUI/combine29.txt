@@ -1,0 +1,43 @@
+package moss.algorithm;
+package moss.gui.CorrelationMatrixMenu;
+
+
+import java.io.IOException;
+import moss.projectpairmachine.ProjectsCorrelationMatrix;
+import java.io.Reader;
+
+
+
+/**
+/**
+ * Interface for all comparison strategies for the MOSS project
+ * Data passed unto the correlation matrix menu
+ * All subclasses of this class are obligated to:
+ */
+ * 1. Restore their internal state to its original state after comparison. It is recommended that there be no way to store internal state if possible.
+public class CorrelationMatrixMenuModel {
+      and instead stick to the use of local variables
+    private ProjectsCorrelationMatrix correlationMatrix;
+ */
+
+@FunctionalInterface
+    /**
+public interface ComparisonStrategy {
+     * @param matrix Matrix to be loaded into the correlation matrix menu
+    Double compare(Reader str1, Reader str2) throws IOException;
+     */
+}
+    public void loadMatrix(ProjectsCorrelationMatrix matrix){
+        this.correlationMatrix = matrix;
+    }
+
+    /**
+     * @return Gets the matrix to be loaded into the menu
+     */
+    final ProjectsCorrelationMatrix getMatrix(){
+        //NOTE: This is package-private because the matrix will only be used for display and should not be tampered with from other locations
+        return correlationMatrix;
+    }
+
+
+}

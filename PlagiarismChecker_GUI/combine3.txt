@@ -1,0 +1,202 @@
+import javafx.fxml.FXML;
+import java.io.*;
+import javafx.fxml.FXML;
+import java.lang.reflect.Array;
+import javafx.application.Application;
+import java.nio.file.Files;
+import javafx.fxml.FXMLLoader;
+import java.nio.file.Path;
+import javafx.scene.layout.*;
+import java.util.ArrayList;
+import javafx.scene.Parent;
+import java.util.HashMap;
+import javafx.fxml.FXMLLoader;
+import java.util.Map;
+import javafx.scene.Scene;
+import java.util.stream.Stream;
+import javafx.scene.paint.Color;
+
+import javafx.scene.control.TextField;
+public class programSimilarityChecker {
+import javafx.scene.Parent;
+    private String currentLine="";
+import javafx.scene.control.Button;
+    private HashMap<String, ArrayList<String>> storage = new HashMap<>();
+import javafx.scene.paint.Paint;
+    private String fileName;
+import javafx.stage.Stage;
+
+import javafx.scene.Scene;
+    private ArrayList<String> toArrayList(File file) throws IOException {
+
+        ArrayList<String> tmpStorage = new ArrayList<>();
+import javafx.scene.text.Text;
+        BufferedReader br = new BufferedReader(new FileReader(file));
+import java.io.IOException;
+        while ((currentLine = br.readLine()) != null) {
+import javafx.stage.Stage;
+            currentLine = currentLine.replaceAll("\\s+", "");
+
+            if (!tmpStorage.contains(currentLine)) {
+
+                tmpStorage.add(currentLine);
+
+            }
+
+        }
+public class mainMenuController {
+        br.close();
+import java.io.IOException;
+        return tmpStorage;
+    @FXML
+    }
+public class Main extends Application{
+    public programSimilarityChecker(String pathName) throws IOException {
+    public TextField pathDirectory;
+        File folder = new File(pathName);
+import java.util.ArrayList;
+        File[] listOfFiles = folder.listFiles();
+    public Button directory;
+        for (File file : listOfFiles) {
+    @Override
+            fileName = file.getName();
+    @FXML
+            if(file.isDirectory()) {
+import java.util.Map;
+                try(Stream<Path> fileStream = Files.walk(file.toPath())){
+    public void buttonClicked() throws IOException {
+                    ArrayList<String> majorLines = new ArrayList<>();
+    public void start(Stage primaryStage) throws Exception{
+                    fileStream
+        String dir = pathDirectory.getText();
+                            .filter(Files::isRegularFile)
+
+                            .forEach(path -> {
+
+                                try {
+        FXMLLoader loader = new FXMLLoader();
+                                    ArrayList<String> lines = toArrayList(path.toFile());
+        Stage insertionSortStage = new Stage();
+                                    majorLines.addAll(lines);
+public class controller {
+                                } catch (IOException e) {
+        FXMLLoader loader = new FXMLLoader();
+                                    e.printStackTrace();
+        loader.setLocation(getClass().getResource("mainMenu.fxml"));
+                                }
+        loader.setLocation(getClass().getResource("similarityChecker.fxml"));
+                            });
+    @FXML
+                    storage.put(fileName, majorLines);
+        Parent insertRoot = loader.load();
+                }
+        Parent root = loader.load();
+            }
+        controller correlationMatrixController = loader.getController();
+            else if (file.isFile()) {
+    private GridPane correlationMatrix;
+                if (fileName.endsWith(".txt") || fileName.endsWith(".TXT") || fileName.endsWith(".txt") || fileName.endsWith(".cpp") || fileName.endsWith(".txt") || fileName.endsWith(".java")) {
+        correlationMatrixController.setPath(dir);
+                    storage.put(fileName, toArrayList(file));
+        primaryStage.setScene(new Scene(root, 600, 500));
+                }
+        correlationMatrixController.printTable();
+            }
+    private String path;
+        }
+        insertionSortStage.setTitle("Similarity Checker");
+    }
+        primaryStage.show();
+    HashMap<String, ArrayList<Double>> table = crossCompare(storage);
+        insertionSortStage.setScene(new Scene(insertRoot, 1000, 500));
+
+
+    public void printCorrelationMatrix() {
+        insertionSortStage.show();
+        for (Map.Entry<String, ArrayList<Double>> entry : table.entrySet()) {
+    }
+            String name = entry.getKey();
+    }
+            ArrayList<Double> scores = entry.getValue();
+    public void setPath(String path){
+            System.out.printf("%15s\t", name);
+}
+            for (Double score : scores) {
+
+                System.out.printf("%.2f\t", score);
+        this.path = path;
+            }
+    public static void main(String[] args) {
+            System.out.println();
+    }
+        }
+        launch(args);
+    }
+
+    public double compare(ArrayList<String> project1, ArrayList<String> project2){
+    }
+        double countComparison = 0;
+    @FXML
+        for (String temp1 : project1) {
+}
+            for (String temp2 : project2) {
+   public void initialize() throws IOException {
+                if (temp1.equals(temp2)) {
+    }
+                    countComparison++;
+
+                }
+    public void printTable() throws IOException {
+            }
+        int row = 1;
+        }
+        programSimilarityChecker test =  new programSimilarityChecker(path);
+        return (countComparison/Math.max(project1.size(), project2.size()) ) * 100;
+        ArrayList<StackPane> names = new ArrayList<>();
+    }
+        names.add(new StackPane(new Text("Scores")));
+
+        for (String name : test.crossCompare().keySet()) {
+    public HashMap<String, ArrayList<Double>> crossCompare(){
+            names.add(new StackPane(new Text(name)));
+        return crossCompare(storage);
+        }
+    }
+        StackPane[] nameList = new StackPane[names.size()];
+
+        names.toArray(nameList);
+    private HashMap<String, ArrayList<Double>> crossCompare(HashMap<String, ArrayList<String>> projects){
+        correlationMatrix.addRow(row++, nameList);
+        HashMap<String, ArrayList<Double>> comparisons = new HashMap<>();
+        for (Map.Entry<String, ArrayList<Double>> entry1 : test.crossCompare().entrySet()) {
+        for (Map.Entry<String, ArrayList<String>> entry : projects.entrySet()){
+            String name = entry1.getKey();
+            String name = entry.getKey();
+            ArrayList<Double> scores = entry1.getValue();
+            ArrayList<String> lines = entry.getValue();
+            ArrayList<Pane> scorePanes = new ArrayList<>();
+            ArrayList<Double> results = new ArrayList<>();
+            Pane namePane = new StackPane();
+            for (ArrayList<String> other : projects.values()){
+            namePane.getChildren().add(new Text(name));
+                results.add(compare(lines, other));
+            scorePanes.add(namePane);
+            }
+            for (Double score : scores){
+            comparisons.putIfAbsent(name, results);
+                Pane newPane = new StackPane();
+        }
+                newPane.setBackground(new Background(new BackgroundFill(Color.color(score / 100, 1 - (score / 100), 0), null,null)));
+        return comparisons;
+                newPane.getChildren().add(new Text(String.format("%.2f", score)));
+    }
+                scorePanes.add(newPane);
+}
+            }
+
+            Pane[] scorePaneArray = new Pane[scorePanes.size()];
+            scorePanes.toArray(scorePaneArray);
+            correlationMatrix.addRow(row++, scorePaneArray);
+        }
+    }
+}

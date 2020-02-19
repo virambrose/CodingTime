@@ -1,0 +1,317 @@
+#include "mainwindow.h"
+#include <iostream>
+#include "ui_mainwindow.h"
+#include<fstream>
+#include <QTableWidget>
+#include<queue>
+
+using namespace std;
+QTableWidget *table;
+
+QDir *listDir;
+
+QDir *comboDir;
+int main(){
+
+    fstream reader;
+QString qDir;
+    queue<string> qreader;
+
+    string line,check;
+void changeDir(QString &arg1, QListWidget *list, QComboBox *combo);
+    int linelength,cmtloc,colonloc;
+
+    bool comment,colontrue;
+MainWindow::MainWindow(QWidget *parent)
+    int stringcount=0,coloncount=0,dotcount=0,equalcount=0;
+    : QMainWindow(parent)
+    int less2xcount=0,lesscount=0,more2xcount=0,morecount=0;
+    , ui(new Ui::MainWindow)
+    int arrowcount=0,forcount=0,found=0,bracketcount=0;
+{
+    int pluscount=0,pluspluscount=0,returncount=0,intcount=0;
+    ui->setupUi(this);
+
+    ui->spinBox->setRange(0,1);
+
+    comboDir = new QDir("../QtCodeV2");
+
+    foreach (QFileInfo temp, comboDir->entryInfoList()) {
+    reader.open("filestoread/header.h");
+        if(temp.isDir())
+    if(reader.is_open()){
+        ui->comboBox->addItem(temp.absolutePath());
+        while(!reader.eof()){
+    }
+            getline(reader,line);
+
+            linelength=line.size();
+}
+            if (!line.empty()){
+
+                if (!line.compare("\t")==0){
+MainWindow::~MainWindow()
+                if (line.at(0)!='/') {
+{
+
+    delete ui;
+                    for(int i=0;i<linelength;i++){
+}
+
+
+                            if (line.at(i)==';') colonloc=i;
+float truncate(float a){
+                            if(line.at(i)=='/'&&i<colonloc){
+    float digit = 0.01;
+
+    return (int)(a/digit)*digit;
+                                cmtloc=i;
+}
+                                comment=true;
+
+                                break;
+void chooseMatrix(int i, wordAmountArr &arr){
+                            }
+    if(i == 0){
+
+        arr.makeMatrix1();
+
+    }
+                        else{
+    else if(i == 1){
+                                comment=false;
+        arr.makeMatrix3();
+                            }
+    }
+                            colonloc=0;
+}
+                    }
+
+                    if(comment){
+void MainWindow::on_pushButton_clicked()
+                        if (line.at(cmtloc-1)==' '){
+{
+                            line.erase(cmtloc-1,linelength);
+    int i = ui->spinBox->value();
+                            qreader.push(line);
+    if(table != nullptr){
+                        }
+        table->close();
+                        else{
+        delete table;
+                            line.erase(cmtloc-1,linelength);
+    }
+                            qreader.push(line);                        }
+    //QWidget *wdg = new QWidget;
+                    }
+    wordAmountArr temp;
+                    else qreader.push(line);
+    table = new QTableWidget;
+                }
+    string path = "C:/Users/Laptop/Documents/CodeChecker/QtCodeV2/Submissions";
+
+    path = "../QtCodeV2/Submissions";
+            }
+    path = qDir.toUtf8().constData();
+            }
+    qDebug() << QString::fromStdString(path);
+
+    QString Qpath = "../QtCodeV2/Submissions";
+    }
+    //path = "Submissions";
+    reader.close();
+    QDir dir(Qpath);
+    }
+    if(dir.exists()){
+
+        qDebug() << Qpath;
+    else cout<<"File not Found!\n";
+    }
+/*
+    else{
+    queue<string> qprint;
+        qDebug() << "Does not exist";
+    qprint=qreader;
+    }
+    while(!qprint.empty()){
+    temp.loadSuperDir(path);
+        cout<<qprint.front()<<"\n";
+    temp.loadSuperDir("Submissions/");
+        qprint.pop();
+    chooseMatrix(i, temp);
+    }
+    int size = 10;
+*/
+    size = temp.matrixSize;
+
+    float **code = temp.getMatrix();
+    while(!qreader.empty()){
+    qDebug() << temp.matrix[0][0];
+        check=qreader.front();
+    table->setRowCount(size);
+        linelength=check.length();
+    table->setColumnCount(size);
+        for(int i=0;i<linelength;i++){
+    for(int x = 0; x < size; x++){
+            if (check.at(i)==';'){
+        for(int y = 0; y < size; y++){
+                coloncount++;
+            float tempF = (code[x][y]/2) + 0.5;
+            }
+            int r = (int) (255*tempF), g = 50, b = (int) (255*(1-tempF));
+            else if(check.at(i)=='s'){
+            QColor color(r, g, b);
+                if(check.at(i+1)=='t'){
+            QString temp;
+                    if(check.at(i+2)=='r'){
+            temp.setNum(truncate(code[x][y]));
+                        if(check.at(i+3)=='i'){
+            QTableWidgetItem *curr = new QTableWidgetItem(temp);
+                            if(check.at(i+4)=='n'){
+            curr->setBackgroundColor(color);
+                                if(check.at(i+5)=='g'){
+            table->setItem(x,y, curr);
+                                    if(check.at(i-1)!='(')
+        }
+                                        stringcount++;
+    }
+
+    table->showMaximized();
+            }
+}
+            }
+
+            }
+void MainWindow::on_pushButton_2_clicked()
+            }
+{
+            }
+    QString arg1 = ui->comboBox->currentText();
+            }
+    changeDir(arg1, ui->listWidget, ui->comboBox);
+            else if(check.at(i)=='+'){
+}
+                pluscount++; //gets + and ++
+
+                found=check.find("++"); //only gets ++
+void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
+                if (found==i) pluspluscount++;
+{
+            }
+    auto arg1 = item->text();
+            else if(check.at(i)=='f'){
+    changeDir(arg1, ui->listWidget, ui->comboBox);
+
+}
+                    found=check.find("for");
+
+                    if(found==i) forcount++;
+void MainWindow::on_comboBox_activated(const QString &arg1)
+
+{
+            }
+
+            else if(check.at(i)=='r'){
+}
+                found=check.find("return");
+
+                if(found==i) returncount++;
+void MainWindow::on_comboBox_currentTextChanged(const QString &arg1)
+            }
+{
+            else if(check.at(i)=='>'){
+
+                morecount++; //gets > and >>
+}
+                found=check.find(">>"); //only gets >>
+
+                if(found==i) more2xcount++;
+void MainWindow::on_comboBox_highlighted(const QString &arg1)
+            }
+{
+
+
+            else if(check.at(i)=='-'){
+}
+                found=check.find("->");
+
+                if(found==i) arrowcount++;
+void changeDir(QString &arg1, QListWidget *list, QComboBox *combo){
+            }
+
+
+    qDir = arg1;
+            else if(check.at(i)=='.'){
+    qDebug() << arg1;
+                dotcount++;
+    if(listDir != nullptr){
+            }
+        delete listDir;
+            else if(check.at(i)=='='){
+        list->clear();
+                equalcount++;
+    }
+            }
+    if(comboDir != nullptr){
+            else if(check.at(i)=='<'){
+        delete comboDir;
+                if(check.at(i+1)!='<'&&check.at(i-1!='<')){
+        combo->clear();
+                    lesscount++;
+    }
+                }
+
+                else less2xcount++;
+    comboDir = new QDir(arg1);
+            }
+    foreach (QFileInfo temp, comboDir->entryInfoList()) {
+            else if(check.at(i)=='{'){
+        if(temp.isDir())
+                bracketcount++;
+        combo->addItem(temp.absoluteFilePath());
+            }
+    }
+            else if(check.at(i)=='i'){
+
+                found=check.find("int");
+    listDir = new QDir(arg1);
+                if (found==i) intcount++;
+    foreach (QFileInfo temp, listDir->entryInfoList()) {
+            }
+       list->addItem(temp.absoluteFilePath());
+
+    }
+
+}
+
+
+        }
+void MainWindow::on_spinBox_valueChanged(int arg1)
+        qreader.pop();
+{
+    }
+
+
+}
+    morecount=morecount-more2xcount; //removes the >> found in morecount
+    pluscount=pluscount-pluspluscount; //removes the ++ found in pluscount
+    cout<<"String count: "<<stringcount<<"\n";
+    cout<<"; count: "<<coloncount<<"\n";
+    cout<<". count: "<<dotcount<<"\n";
+    cout<<"= count: "<<equalcount<<"\n";
+    cout<<"< count: "<<lesscount<<"\n";
+    cout<<"<< count: "<<less2xcount<<"\n";
+    cout<<">> count: "<<more2xcount<<"\n";
+    cout<<"> count: "<<morecount<<"\n";
+    cout<<"for count: "<<forcount<<"\n";
+    cout<<"-> count: "<<arrowcount<<"\n";
+    cout<<"+ count: "<<pluscount<<"\n";
+    cout<<"++ count: "<<pluspluscount<<"\n";
+    cout<<"return count: "<<returncount<<"\n";
+    cout<<"{} count: "<<bracketcount<<"\n";
+    cout<<"int count: "<<intcount<<"\n";
+
+
+
+
+}

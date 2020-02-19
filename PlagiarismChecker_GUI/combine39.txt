@@ -1,0 +1,75 @@
+import java.io.BufferedReader;
+package ScratchWork;
+package ScratchWork;
+
+package ScratchWork;
+public class TestClass {
+
+
+import java.io.FileReader;
+
+public class SimilarityAlgorithm {
+    public static void main(String[] args)  {
+
+        // TODO code application logic here
+
+        Character x ='x';
+import java.io.IOException;
+        String sample = "adoru";
+    
+
+import java.io.FileReader;
+        System.out.println("The HashCode of x: " + x.hashCode());
+
+        Character x2 = sample.charAt(4);
+
+        System.out.println(sample.hashCode());
+}
+    }
+import java.io.IOException;
+}
+public class GetLines {
+import java.util.LinkedList;
+
+
+    private BufferedReader progLines;
+public class CharGetter {
+
+
+    GetLines (String filepath) throws IOException {
+    FileReader file;
+        progLines= new BufferedReader(new FileReader(filepath));
+
+    }
+    LinkedList<Character> characters;
+
+
+    Integer ReturnNumLines() throws IOException{
+    //this class is for getting the characters from the file program
+        //this function will return the number of lines in the given program file
+    //it shall exclude any spaces, nextline and variable name
+
+
+        int line = 0 ;
+    CharGetter(String filename) throws IOException {
+
+        file = new FileReader(filename);
+        while(progLines.readLine() != null) line++;
+    }
+        return line;
+
+    }
+
+}
+    void ReturnProcessedCharacters () throws IOException{
+        int tempInt = 0;
+        int sum =0;
+
+        while(tempInt != -1){
+            tempInt = file.read();
+
+            if(tempInt != 32 && tempInt != 13 && tempInt != 10) sum += tempInt;
+        }
+    }
+
+}

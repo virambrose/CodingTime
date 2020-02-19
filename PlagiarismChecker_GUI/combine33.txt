@@ -1,0 +1,158 @@
+package moss.algorithm;
+package moss.gui.utilities;
+package moss.gui.CorrelationMatrixMenu;
+
+package moss.gui.CorrelationMatrixMenu;
+import javafx.scene.paint.Color;
+
+import javafx.scene.paint.Paint;
+package moss.gui.CorrelationMatrixMenu;
+
+import com.airhacks.afterburner.views.FXMLView;
+/**
+
+ * A custom set of operations for working with colors in Java
+
+ */
+package moss.gui.CorrelationMatrixMenu;
+public final class CustomColorOperations {
+/**
+    private CustomColorOperations(){}
+/**
+
+ * View for the correlation matrix
+    /**
+
+     * Used to find a color at a particular percentage between a start and end color.
+ */
+     * For example, you may use this to find a color 60% between red an dblue
+ * Represents services that can be done while viewing the correlation matrix
+     * @param start Starting color
+public class CorrelationMatrixMenuView extends FXMLView {
+     * @param end Ending color
+
+     * @param percentage Percentage between the two colors of the output color
+
+     * @return Color at the <b>percentage</b> * 100% of start and end
+ */
+     */
+}
+    public static Paint interpolateColor(Color start, Color end, double percentage){
+import javafx.fxml.FXML;
+        return start.interpolate(end, percentage);
+public class CorrelationMatrixMenuService {
+    }
+
+
+
+}
+import javafx.scene.Node;
+}
+import java.io.IOException;
+import javafx.scene.control.TableView;
+import moss.projectpairmachine.ProjectsCorrelationMatrix;
+import javafx.scene.layout.*;
+import java.io.Reader;
+import javafx.scene.paint.Color;
+
+import javafx.scene.text.Text;
+
+import moss.gui.utilities.CustomColorOperations;
+
+import moss.gui.utilities.CustomFXMLOperations;
+/**
+import moss.projectpairmachine.ProjectsCorrelationMatrix;
+/**
+import moss.projectpairmachine.ProjectsCorrelationMatrix.*;
+ * Interface for all comparison strategies for the MOSS project
+
+ * Data passed unto the correlation matrix menu
+import javax.inject.Inject;
+ * All subclasses of this class are obligated to:
+import java.util.ArrayList;
+ */
+import java.util.Collection;
+ * 1. Restore their internal state to its original state after comparison. It is recommended that there be no way to store internal state if possible.
+
+public class CorrelationMatrixMenuModel {
+/**
+      and instead stick to the use of local variables
+ * Presenter for the correlation matrix
+    private ProjectsCorrelationMatrix correlationMatrix;
+ */
+ */
+public class CorrelationMatrixMenuPresenter {
+
+    @FXML
+@FunctionalInterface
+    private GridPane correlationMatrixTable;
+    /**
+    @Inject
+public interface ComparisonStrategy {
+    private CorrelationMatrixMenuModel model;
+     * @param matrix Matrix to be loaded into the correlation matrix menu
+    @Inject
+    Double compare(Reader str1, Reader str2) throws IOException;
+    private CorrelationMatrixMenuService services;
+     */
+
+}
+
+    public void loadMatrix(ProjectsCorrelationMatrix matrix){
+    /**
+        this.correlationMatrix = matrix;
+     * Loads the matrix in the correlation menu model into the window via a grid pane
+    }
+     */
+
+    private void loadModelMatrixToTable(){
+    /**
+        final ProjectsCorrelationMatrix matrix = model.getMatrix();
+     * @return Gets the matrix to be loaded into the menu
+        //PHASE 1: Load headers
+     */
+        Collection<Text> nameText = new ArrayList<>();
+    final ProjectsCorrelationMatrix getMatrix(){
+        for (String name : matrix.getProjectNames()){
+        //NOTE: This is package-private because the matrix will only be used for display and should not be tampered with from other locations
+            nameText.add(new Text(name));
+        return correlationMatrix;
+        }
+    }
+        Text[] nameTextArray = new Text[nameText.size()];
+
+        nameText.toArray(nameTextArray);
+
+        correlationMatrixTable.addRow(0, nameTextArray);
+}
+
+
+        //PHASE 2: Load all the results from the table into the grid pane
+        int row = 1;
+        for (ResultRow resultRow : matrix.getRows()){
+            Collection<Pane> resultsPaneInRow = new ArrayList<>();
+            resultsPaneInRow.add(new StackPane(new Text(resultRow.getProject().getName())));
+            for (ResultSet.ResultRecord result : resultRow.getResults()){
+                Pane scoreTextContainer = new StackPane(new Text(String.format("%.2f", result.getScore())));
+                scoreTextContainer.setBackground(
+                        new Background(
+                                new BackgroundFill(CustomColorOperations
+                                        .interpolateColor(Color.GREEN, Color.RED, result.getScore()), null, null)
+                        )
+                );
+                resultsPaneInRow.add(scoreTextContainer);
+            }
+
+            Pane[] resultTextArray = new Pane[resultsPaneInRow.size()];
+            resultsPaneInRow.toArray(resultTextArray);
+            correlationMatrixTable.addRow(row++, resultsPaneInRow.toArray(resultTextArray));
+        }
+
+        correlationMatrixTable.setGridLinesVisible(true);
+    }
+    @FXML
+    private void initialize(){
+        loadModelMatrixToTable();
+    }
+
+}

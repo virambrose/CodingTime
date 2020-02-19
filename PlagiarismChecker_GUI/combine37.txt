@@ -1,0 +1,53 @@
+import java.io.BufferedReader;
+package ScratchWork;
+import java.io.FileReader;
+
+import java.io.IOException;
+import java.io.FileReader;
+
+import java.io.IOException;
+public class GetLines {
+import java.util.LinkedList;
+
+
+    private BufferedReader progLines;
+public class CharGetter {
+
+
+    GetLines (String filepath) throws IOException {
+    FileReader file;
+        progLines= new BufferedReader(new FileReader(filepath));
+
+    }
+    LinkedList<Character> characters;
+
+
+    Integer ReturnNumLines() throws IOException{
+    //this class is for getting the characters from the file program
+        //this function will return the number of lines in the given program file
+    //it shall exclude any spaces, nextline and variable name
+
+
+        int line = 0 ;
+    CharGetter(String filename) throws IOException {
+
+        file = new FileReader(filename);
+        while(progLines.readLine() != null) line++;
+    }
+        return line;
+
+    }
+
+}
+    void ReturnProcessedCharacters () throws IOException{
+        int tempInt = 0;
+        int sum =0;
+
+        while(tempInt != -1){
+            tempInt = file.read();
+
+            if(tempInt != 32 && tempInt != 13 && tempInt != 10) sum += tempInt;
+        }
+    }
+
+}

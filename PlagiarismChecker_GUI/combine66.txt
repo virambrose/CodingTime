@@ -1,0 +1,596 @@
+package Backend;
+package Controller;
+package Controller;
+
+package Controller;
+import javafx.fxml.FXMLLoader;
+
+import javafx.scene.Parent;
+package Controller;
+import javafx.scene.Scene;
+import Backend.*;
+import javafx.scene.control.Button;
+
+import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.stage.Stage;
+package Backend;
+
+import javafx.geometry.Pos;
+import java.io.IOException;
+
+
+import javafx.scene.control.Button;
+public class UsernameController {
+
+
+import javafx.scene.control.RadioButton;
+    public Button enter;
+import javafx.application.Application;
+    public TextField nameField;
+import javafx.scene.control.TextField;
+    private Stage stage;
+package Backend;
+
+import javafx.scene.layout.GridPane;
+    public void toNext() throws IOException {
+import javafx.fxml.FXMLLoader;
+        FXMLLoader fxmloader = new FXMLLoader(getClass().getResource("../FXML/Filenames.fxml"));
+import javafx.scene.layout.StackPane;
+        Parent root = (Parent) fxmloader.load();
+import Backend.*;
+
+import javafx.scene.layout.VBox;
+        Scene scene = new Scene(root);
+import javafx.scene.Parent;
+
+import javafx.stage.Stage;
+        FilenamesController passCont = fxmloader.getController();
+
+        passCont.passStage(stage);
+
+
+import javafx.scene.Scene;
+        stage.setScene(scene);
+import java.io.File;
+
+import javafx.fxml.FXMLLoader;
+        stage.setTitle("Similarity Software Program");
+import java.io.FileNotFoundException;
+
+import javafx.stage.Stage;
+        stage.show();
+import java.io.IOException;
+    }
+package Backend;
+
+import java.net.URL;
+    public void passStage(Stage stage){
+
+        this.stage = stage;
+import java.util.ResourceBundle;
+    }
+import javafx.scene.Parent;
+
+
+
+
+
+public class StatusController implements Initializable {
+}
+import java.io.File;
+
+
+
+public class Main extends Application {
+    public GridPane gridPane;
+import javafx.scene.Scene;
+    public RadioButton lineChoice,characterChoice;
+
+    public TextField username;
+
+    public Button check,quit;
+    @Override
+    private Similarity compare = new Similarity();
+import javafx.scene.control.Button;
+    private String comparison = "line";
+    public void start(Stage primaryStage) throws Exception{
+    private DataObject dataObj;
+import java.io.FileNotFoundException;
+
+        Stage stage = primaryStage;
+
+import javafx.scene.control.RadioButton;
+
+
+    public void line() {
+
+        comparison = "line";
+        FXMLLoader fxmloader = new FXMLLoader(getClass().getResource("../FXML/Status.fxml"));
+    }
+import javafx.scene.control.TextField;
+
+        Parent root =fxmloader.load();
+    public void character() {
+import java.io.IOException;
+        comparison = "character";
+
+    }
+import javafx.stage.Stage;
+
+        primaryStage.setTitle("Software Similarity Program");
+    public void createMatrix() throws IOException {
+import java.io.File;
+
+        primaryStage.setScene(new Scene(root, 1600, 850));
+        compare.readFile(comparison);
+
+
+
+        MatrixToGridpane();
+import java.util.Scanner;
+
+//        UsernameController passCont = fxmloader.getController();
+    }
+import java.io.IOException;
+
+//        passCont.passStage(stage);
+    public void MatrixToGridpane(){
+
+        System.out.println("MATRIX BY "+comparison.toUpperCase()+":");
+
+
+
+        for(int x = 0; x<compare.getMatrix().arraySize(); x++){
+        primaryStage.show();
+            //System.out.print(form.getMatrix().get(0).get(x) + " ");  //to see MatrixToGridpane row values
+
+            for(int y = 0; y<compare.getMatrix().matrixSize(); y++){
+    }
+                System.out.print(compare.getMatrix().getMatrix().get(y).get(x) + "  ");
+
+                dataObj = new DataObject(compare.getMatrix().getMatrix().get(y).get(x));
+
+
+import java.io.FileNotFoundException;
+
+
+                VBox vbox = new VBox();
+public class FilenamesController {
+                vbox.setAlignment(Pos.CENTER);
+    public static void main(String[] args) {
+                vbox.getChildren().addAll(dataObj.getLabel());
+public class SystemMetrics {
+
+        launch(args);
+                StackPane pane = new StackPane();
+
+                pane.setAlignment(Pos.CENTER);
+    }
+                pane.getChildren().addAll(dataObj.getRect(),vbox);
+import java.io.File;
+
+}
+                gridPane.add(pane,y,x);
+    private String comparison;
+                //gridPane.setGridLinesVisible(true);
+    private File[] folders;
+            }
+    public TextField filename1,filename2;
+            System.out.println();
+import java.util.ArrayList;
+        }
+    public Button next;
+    }
+    private int numOfFiles=0;
+
+    public RadioButton lineChoice,characterChoice;
+    public void toExit()
+import java.util.ArrayList;
+    {
+    private Stage stage;
+        Stage stage = (Stage) quit.getScene().getWindow();
+    private String[] filesArray = new String[35];
+        stage.close();
+    private String fileName;
+    }
+import java.util.Scanner;
+
+    private String message;
+
+    private String[] operators = {".","( )","if","for","=","+","while","!",";","==","<=","<","float","int",">",
+    @Override
+    private Similarity check= new Similarity();
+    public void initialize(URL location, ResourceBundle resources) {
+import java.io.IOException;
+//        lineChoice.setToggleGroup(toggleChoice);
+    private int type = 0;
+//        characterChoice.setToggleGroup(toggleChoice);
+    "++","new","&&","||","/","{ }"};
+
+
+    }
+
+}
+    public void passStage(Stage stage){
+    private String[] operands = {"x","y","i","j"};
+        this.stage = stage;
+
+    }
+    //private int[] operandsCount = new int[10];
+
+public class Similarity {
+    public void line() {
+
+        comparison = "line";
+
+    }
+    public void getAllFiles(File directory) throws IOException {
+
+    private float  percentage = 0;
+    public void character() {
+        folders = directory.listFiles();
+        comparison = "character";
+public class Matrix {
+    }
+        for(File file : folders){  //folders.length
+
+    private Scanner prog1Scan, prog2Scan;
+    public void toExit()
+            if(file.isDirectory()){  //folders[x]
+    {
+public class MainOperations {
+        stage.close();
+                System.out.println("\nFOLDER: "+file.getCanonicalPath());
+    }
+    private File filename1, filename2;
+
+                getAllFiles(file);
+    public void toNext() throws IOException {
+    private ArrayList<ArrayList<Float>> matrix = new ArrayList<>();
+        //Stage popUp= new Stage();
+            } else {
+        FXMLLoader fxmloader = new FXMLLoader(getClass().getResource("../FXML/Status.fxml"));
+    private Matrix data = new Matrix();
+        Parent root = (Parent) fxmloader.load();
+                System.out.println("FILE: "+file.getCanonicalPath());
+
+
+        Scene scene = new Scene(root);
+                if(file.getCanonicalPath().contains(".java") || file.getCanonicalPath().contains(".cpp")){
+
+    private ArrayList<String> arrayA,arrayB;
+        //CREATE MATRIX
+                    filesArray[numOfFiles++] = file.getCanonicalPath();
+        if(lineChoice.isSelected()) line();
+    private ArrayList<Float> arrayTemp;
+        else {
+                }
+            character();
+
+            type = 1;
+            }
+        }
+
+
+        }
+//        StatusController passCont = fxmloader.getController();
+
+//        check.readFile(comparison,status);
+        //System.out.println(numOfFiles);
+        //passCont.passMatrix(check.getSB(),type);
+
+//        check.clearSb();
+    }
+
+    public void ReadCodeLine() {
+        stage.setScene(scene);
+
+        stage.setTitle("Software Similarity Program");
+    public static void main(String[] args) throws IOException {
+        stage.show();
+    public void searchOperations() throws FileNotFoundException {
+    }
+        float sameLines=0,totalLines=0,shorterLimit=0,longestLength=0;
+
+        String word = "";
+    private void clear()
+    public void newMatrix()
+    {
+        int dots=0,par=0,ifs=0,fors=0,equal=0,plus=0,whiles=0,not=0,colon=0,equals=0,lessEqual=0,less=0,
+        filename1.clear();
+        String longestString = "";
+        filename2.clear();
+                floats=0,ints=0,greater=0,pluses=0,news=0,ands=0,ors=0,fslash=0,curly=0;
+    }
+
+
+        int xs=0,ys=0,is=0,js=0;
+    private void setMessage(String message) {
+
+        this.message = message;
+        int sum_operators,sum_operands;
+    }
+    {
+
+
+}
+        arrayA = new ArrayList<>();
+
+        for(int i=0; i<numOfFiles; i++) {  //numOfFiles [change numOfFiles to 1 for the first file only)
+
+        SystemMetrics metrics = new SystemMetrics();
+            File file = new File(filesArray[i]);
+        arrayB = new ArrayList<>();
+            Scanner fileScanner = new Scanner(file);
+        matrix= new ArrayList<>();
+            //System.out.println(filesArray[i]);
+
+
+
+            while(fileScanner.hasNextLine()){
+        while(prog1Scan.hasNextLine() || prog2Scan.hasNextLine()) {
+                word = fileScanner.nextLine();
+    }
+                //System.out.println(word);
+
+
+        File masterFile = new File("Codes");  //for our files [Codes or src only]
+                for(int x=0;x<word.length();x++){
+            if(!prog1Scan.hasNextLine() && prog2Scan.hasNextLine()) {
+                    //OPERATORS
+
+                    if(word.charAt(x) == '.') dots++;
+                String line2 = prog2Scan.nextLine();
+                    if(word.charAt(x) == '(') par++;
+        metrics.createSystemMetricsTable(masterFile);  //check this for other's files
+                    if(word.charAt(x) == 'i' && word.charAt(x+1) == 'f') ifs++;
+
+                    if(word.charAt(x) == 'f' && word.charAt(x+1) == 'o' && word.charAt(x+2) == 'r') fors++;
+    public ArrayList<ArrayList<Float>> getMatrix() {
+                    if(word.charAt(x) == '=') equal++;
+                if(!line2.trim().isEmpty()) {
+                    if(word.charAt(x) == '+') plus++;
+
+                    if(word.charAt(x) == 'w' && word.charAt(x+1) == 'h' && word.charAt(x+2) == 'i' && word.charAt(x+3) == 'l' && word.charAt(x+4) == 'e') whiles++;
+                    arrayB.add(line2);
+                    if(word.charAt(x) == '!') not++;
+        return matrix;
+                    if(word.charAt(x) == ';') colon++;
+                    totalLines++;
+                    if(word.charAt(x) == '=' && word.charAt(x+1) == '=') equals++;
+
+                    if(word.charAt(x) == '<' && word.charAt(x+1) == '=') lessEqual++;
+                }
+                    if(word.charAt(x) == '<') less++;
+    }
+                    if(word.charAt(x) == 'f' && word.charAt(x+1) == 'l' && word.charAt(x+2) == 'o' && word.charAt(x+3) == 'a' && word.charAt(x+4) == 't') floats++;
+            }
+                    if(word.charAt(x) == 'i' && word.charAt(x+1) == 'n' && word.charAt(x+2) == 't') ints++;
+    }
+                    if(word.charAt(x) == '>') greater++;
+            else if (prog1Scan.hasNextLine() && !prog2Scan.hasNextLine()) {
+                    if(word.charAt(x) == '+' && word.charAt(x+1) == '+') pluses++;
+
+                    if(word.charAt(x) == 'n' && word.charAt(x+1) == 'e' && word.charAt(x+2) == 'w') news++;
+                String line1 = prog1Scan.nextLine();
+                    if(word.charAt(x) == '&' && word.charAt(x+1) == '&') ands++;
+
+                    if(word.charAt(x) == '|' && word.charAt(x+1) == '|') ors++;
+
+                    if(word.charAt(x) == '/') fslash++;
+    public void setNewArray() {
+                    if(word.charAt(x) == '{') curly++;
+                if(!line1.trim().isEmpty()) {
+
+
+                    //OPERATORS
+                    arrayA.add(line1);
+                    /*if(word.charAt(x) == 'x') xs++;    //considers all x,y,i,j
+        arrayTemp= new ArrayList<>();
+                    if(word.charAt(x) == 'y') ys++;
+                    totalLines++;
+                    if(word.charAt(x) == 'i') xs++;
+}
+                    if(word.charAt(x) == 'j') ys++;*/
+                }
+
+    }
+                    //considers only x,y,i,j used in for loops or basta as variables lang
+            }
+                    if(word.charAt(x) == 'x' && (word.charAt(x+1) == '<' || word.charAt(x+1) == '=' || word.charAt(x+1) == '+' || word.charAt(x+1) == ')' || word.charAt(x+1) == ']')) xs++;
+
+                    if(word.charAt(x) == 'y' && (word.charAt(x+1) == '<' || word.charAt(x+1) == '=' || word.charAt(x+1) == '+' || word.charAt(x+1) == ')' || word.charAt(x+1) == ']')) ys++;
+            else {
+                    if(word.charAt(x) == 'i' && (word.charAt(x+1) == '<' || word.charAt(x+1) == '=' || word.charAt(x+1) == '+' || word.charAt(x+1) == ')' || word.charAt(x+1) == ']')) is++;
+
+//                    if(word.charAt(x) == 'j' && (word.charAt(x+1) == '<' || word.charAt(x+1) == '=' || word.charAt(x+1) == '+' || word.charAt(x+1) == ')' || word.charAt(x+1) == ']')) js++;
+                String line1 = prog1Scan.nextLine();
+                }
+    public void addArray(float value) {
+
+                String line2 = prog2Scan.nextLine();
+            }
+        arrayTemp.add(value);
+        }
+
+
+    }
+
+                if(!line1.trim().isEmpty()) arrayA.add(line1);
+        sum_operators = dots+par+ifs+fors+equal+plus+whiles+not+colon+equals+lessEqual+less+floats+ints+greater+pluses+news+ands+ors+fslash+curly;
+
+        sum_operands = ys+ys+is+js;
+                if(!line2.trim().isEmpty()) arrayB.add(line2);
+
+    public void setMatrix() {
+        System.out.println("\n-- OPERATORS --");
+                //if(!line1.trim().isEmpty() && !line2.trim().isEmpty()) totalLines++;
+        System.out.println(operators[0] + " -> " + dots);
+        matrix.add(arrayTemp);
+        System.out.println(operators[1] + " -> " + par);
+            }
+        System.out.println(operators[2] + " -> " + ifs);
+    }
+        System.out.println(operators[3] + " -> " + fors);
+        }
+        System.out.println(operators[4] + " -> " + equal);
+
+        System.out.println(operators[5] + " -> " + plus);
+
+        System.out.println(operators[6] + " -> " + whiles);
+    public int arraySize(){
+        System.out.println(operators[7] + " -> " + not);
+        if(arrayA.size() > arrayB.size()) totalLines = arrayA.size();
+        System.out.println(operators[8] + " -> " + colon);
+        return arrayTemp.size();
+        System.out.println(operators[9] + " -> " + equals);
+        else totalLines = arrayB.size();
+        System.out.println(operators[10] + " -> " + lessEqual);
+    }
+        System.out.println(operators[11] + " -> " + less);
+
+        System.out.println(operators[12] + " -> " + floats);
+
+        System.out.println(operators[13] + " -> " + ints);
+//        totalLines = arrayA.size() + arrayB.size();
+        System.out.println(operators[14] + " -> " + greater);
+    public int matrixSize(){
+        System.out.println(operators[15] + " -> " + pluses);
+
+        System.out.println(operators[16] + " -> " + news);
+        return matrix.size();
+        System.out.println(operators[17] + " -> " + ands);
+        System.out.println("\nNUMBER OF PROG1 LINES: " + arrayA.size());
+        System.out.println(operators[18] + " -> " + ors);
+    }
+        System.out.println(operators[19] + " -> " + fslash);
+        System.out.println("NUMBER OF PROG2 LINES: " + arrayB.size() + "\n");
+        System.out.println(operators[20] + " -> " + curly);
+
+        System.out.println("SUM -> " + sum_operators);
+
+
+}
+
+
+        System.out.println("\n-- OPERANDS --");
+        for(int x=0;x<arrayA.size();x++){  //arrayA.size()
+        System.out.println(operands[0] + " -> " + xs);
+//            System.out.println("PROG 1 LINE: "+arrayA.get(x));
+        System.out.println(operands[1] + " -> " + ys);
+            boolean compared = false;
+        System.out.println(operands[2] + " -> " + is);
+            for(int y=0;y<arrayB.size();y++){  //arrayB.size()
+        System.out.println(operands[3] + " -> " + js);
+//                System.out.println("PROG 2 LINE: "+arrayB.get(y));
+        System.out.println("SUM -> " + sum_operands);
+                if(arrayA.get(x).equals(arrayB.get(y))){
+
+                    if(!compared) {
+
+                        System.out.println("PROG 1 LINE #"+(x+1)+": "+arrayA.get(x));
+    }
+                        System.out.println("PROG 2 LINE #"+(y+1)+": "+arrayB.get(y));
+
+                        sameLines++;
+    public void createSystemMetricsTable(File directory) throws IOException {
+                        System.out.println(sameLines);
+
+                    }
+        getAllFiles(directory);
+                    compared = true;
+        searchOperations();
+                }
+
+            }
+
+        }
+    }
+
+
+        System.out.println("\nNUMBER OF SAME LINES: " + sameLines);
+}
+        System.out.println("NUMBER OF TOTAL LINES: " + totalLines + "\n");
+        percentage = (sameLines / totalLines);
+        //percentage = (float)((sameLines/totalLines)-0.5) * 2; //testing for negatives
+    }
+
+    public void ReadCodeCharacter() {
+        int countChar = 0;
+        int countTotal = 0;
+        while (true) {
+            if (prog1Scan.hasNext() && prog2Scan.hasNext()) {
+                String data1 = prog1Scan.nextLine();
+                String data2 = prog2Scan.nextLine();
+                int i = 0;
+                while (true) {
+                    if (i < data1.length() && i < data2.length()) {
+                        if (data1.charAt(i) == data2.charAt(i)) {
+                            countChar++;
+                            countTotal++;
+                        }
+                        i++;
+                    } else if (i < data2.length()) {
+                        countTotal++;
+                        i++;
+                    } else if (i < data1.length()) {
+                        countTotal++;
+                        i++;
+                    } else {
+                        break;
+                    }
+                }
+
+            } else if (prog1Scan.hasNext()) {
+                countTotal = countTotal + prog1Scan.nextLine().length();
+            } else if (prog2Scan.hasNext()) {
+                countTotal = countTotal + prog2Scan.nextLine().length();
+            } else {
+                break;
+            }
+
+        }
+        prog1Scan.close();
+        prog2Scan.close();
+        percentage = ((float) countChar / (float) countTotal);
+        //percentage = (float)((countChar/countTotal)-0.5) * 2; //testing for negatives
+
+    }
+
+    public void readFile(String comparison) throws FileNotFoundException {
+
+        File prog1File = new File("Codes");
+        File prog2File = new File("Codes");
+        File[] file1 = prog1File.listFiles();
+        File[] file2 = prog2File.listFiles();
+
+        data.newMatrix();
+
+        for(int i=0; i<file1.length; i++) //file1.length
+        {
+            data.setNewArray();
+
+            this.filename1=file1[i];
+            for(int j=0; j<file2.length; j++) //file2.length
+            {
+                this.filename2=file2[j];
+                prog1Scan = new Scanner(filename1);
+                prog2Scan = new Scanner(filename2);
+                if(comparison.equals("line")) ReadCodeLine();
+                else ReadCodeCharacter();
+
+                //form.addArray(percentage);  //raw percentage
+                data.addArray((float)(Math.round(percentage*100.0)/100.0));  //two decimal points
+            }
+            data.setMatrix();
+        }
+
+    }
+
+    public Matrix getMatrix(){
+        return data;
+    }
+
+
+}
