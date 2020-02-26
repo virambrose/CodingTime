@@ -1,0 +1,5 @@
+.root{
+    -fx-background-image: url('gray-bg.png');
+    -fx-background-position: center center;
+    -fx-background-size: 100% 100%;
+}

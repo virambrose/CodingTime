@@ -35,13 +35,13 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="20.0" stroke="BLACK" strokeType="INSIDE" width="35.0" />
                   <Label text="Good" />
                   <Region prefHeight="40.0" prefWidth="15.0" />
-                  <TextField fx:id="directoryText" prefHeight="26.0" prefWidth="359.0" promptText="Input Directory of Folder...">
+                  <TextField fx:id="directoryText" prefHeight="26.0" prefWidth="359.0" promptText="Input Directory of Folder..." text="Input Directory of Folder...">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </TextField>
                   <Region prefHeight="26.0" prefWidth="61.0" />
-                  <Button mnemonicParsing="false" onAction="#compute" prefHeight="26.0" prefWidth="100.0" text="Submit" />
+                  <Button mnemonicParsing="false" onAction="#make" prefHeight="26.0" prefWidth="100.0" stylesheets="@style.css" text="Submit" />
                   <Region prefHeight="40.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Note: Remember that this program compares to every file in the directory, meaning that it will compare to itself also. The diagonal will result to a score of 1.00." wrappingWidth="243.56971740722656">
                      <font>
@@ -59,7 +59,7 @@
             </HBox>
          </top>
          <center>
-            <AnchorPane fx:id="newPane" prefHeight="449.0" prefWidth="902.0" BorderPane.alignment="CENTER" />
+            <AnchorPane fx:id="newPane" prefHeight="449.0" prefWidth="902.0" styleClass="root" stylesheets="@background.css" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

@@ -21,7 +21,6 @@ import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -31,31 +30,73 @@ import javafx.scene.text.Font;
 
 public class Controller {
 
+    //GUI ELEMENTS
     public TextField directoryText;
     public AnchorPane newPane;
 
-    public void compute() throws Exception {
-        Queue<String> masher = new LinkedList<>(); //MASHER MEANING QUEUE FOR COMBINING
-        Queue<String> access_paths = new LinkedList<>(); //DIRECTORY NAMES THAT WILL BE COMPARED
-        Queue<String> matrix_maker = new LinkedList<>();//FOR THE PLAGIARISM SCORES
-        String[] paths = new String[100];
+    //STRING TO GET TEXT OF TEXTFIELD
+    public String directory_path = "";
 
-        //THIS IF FOR THE CHECKING FOR COMPARISON OF FILES
-        double same_counter = 0;
-        double line_counter1 = 0;
-        double line_counter2 = 0;
-        double line_total;
+    //STRING FOR THE PATHS OF THE FILES
+    public String[] paths = new String[100];
 
-        // 2 CHECKERS TO CHECK IF JAVA OR C++ FILES ARE IN THE SAME FOLDER
-        String check="";
-        String check_front="";
+    // 2 CHECKERS TO CHECK IF JAVA OR C++ FILES ARE IN THE SAME FOLDER
+    String check="";
+    String check_front="";
+
+    public Queue<String> access_paths = new LinkedList<>(); //DIRECTORY NAMES THAT WILL BE COMPARED
+    public Queue<String> masher = new LinkedList<>(); //MASHER MEANING QUEUE FOR COMBINING
+    Queue<String> matrix_maker = new LinkedList<>();//FOR THE PLAGIARISM SCORES)
+
+    //TO KNOW NUMBER OF TIMES THAT THE MATRIX HAS TO REPEAT
+    public int total_files;
+
+    //LAYOUT MAKER
+    public void make() throws Exception {
+
+        directory_path = directoryText.getText();
+
+        compare(paths);
 
         //THIS IS FOR THE GUI LAYOUT
         int spacerX;
         int spacerY = 20;
 
+        for (int c = 0; c < total_files; c++) {
+            spacerX=40;
+
+            for (int d = 0; d < total_files; d++) {
+                Rectangle rect;
+                Label data;
+                rect = new Rectangle(spacerX-5,spacerY-2,65,30);
+                rect.setStroke(Color.BLACK);
+                double score = Double.parseDouble(matrix_maker.peek());
+                if(score>0){
+                    rect.setFill(Color.RED);
+                }
+                else if(score<=0){
+                    rect.setFill(Color.GREEN);
+                }
+
+                data = new Label(matrix_maker.remove());
+                data.setLayoutX(spacerX);
+                data.setLayoutY(spacerY);
+                data.setFont(new Font(18));
+                newPane.getChildren().addAll(rect,data);
+
+                spacerX = spacerX +65;
+            }
+
+            spacerY=spacerY+30;
+        }
+    }
+
+    //GETTING ALL THE FILES IN A DIRECTORY
+    public void getter(String directory){
+
         //THIS IS FOR GETTING ALL THE JAVA FILES IN THE FOLDER
-        try (Stream<Path> walk = Files.walk(Paths.get(directoryText.getText()))) {
+
+        try (Stream<Path> walk = Files.walk(Paths.get(directory))) {
 
             List<String> output = walk.map(x -> x.toString())
                     .filter(f -> f.endsWith(".java")).collect(Collectors.toList());
@@ -141,7 +182,7 @@ public class Controller {
         }
 
         //THIS IS FOR GETTING ALL THE C++ FILES IN THE FOLDER
-        try (Stream<Path> walk = Files.walk(Paths.get(directoryText.getText()))) {
+        try (Stream<Path> walk = Files.walk(Paths.get(directory))) {
 
             List<String> output = walk.map(x -> x.toString())
                     .filter(f -> f.endsWith(".cpp")).collect(Collectors.toList());
@@ -229,14 +270,29 @@ public class Controller {
             e.printStackTrace();
         }
 
-        System.out.println(access_paths.size());
-        int total_files = access_paths.size();
+    }
+
+    //COMPARING EACH FILE TO ONE ANOTHER
+    public void compare(String[] paths) throws Exception{
+        getter(directory_path);
+
+        //THIS IF FOR THE CHECKING FOR COMPARISON OF FILES
+        double same_counter = 0;
+        double line_counter1 = 0;
+        double line_counter2 = 0;
+        double line_total;
+
+
+        //System.out.println(access_paths.size());
+        total_files = access_paths.size();
 
         for(int i=0;i<total_files;i++) {
-            System.out.println(access_paths.peek());
+            //System.out.println(access_paths.peek());
             paths[i] = access_paths.remove();
         }
 
+
+        //COMPARING OF FILES
         for(int i=0;i<total_files;i++) {
             for (int j = 0; j < total_files; j++) {
                 File file1 = new File(paths[i]);
@@ -288,7 +344,6 @@ public class Controller {
                     matrix_maker.add("-1.00");
                 }
                 else {
-
                     matrix_maker.add(new DecimalFormat("#.##").format(score));
                 }
 
@@ -298,32 +353,6 @@ public class Controller {
             }
         }
 
-        //LAYOUT MAKER
-        for (int c = 0; c < total_files; c++) {
-            spacerX=40;
-
-            for (int d = 0; d < total_files; d++) {
-                Rectangle rect;
-                Label data;
-                rect = new Rectangle(spacerX-5,spacerY-2,65,30);
-                rect.setStroke(Color.BLACK);
-                double score = Double.parseDouble(matrix_maker.peek());
-                if(score>0){
-                    rect.setFill(Color.RED);
-                }
-                else if(score<=0){
-                    rect.setFill(Color.GREEN);
-                }
-                data = new Label(matrix_maker.remove());
-                data.setLayoutX(spacerX);
-                data.setLayoutY(spacerY);
-                data.setFont(new Font(18));
-                newPane.getChildren().addAll(rect,data);
-
-                spacerX = spacerX +65;
-            }
-
-            spacerY=spacerY+30;
-        }
     }
+
 }
