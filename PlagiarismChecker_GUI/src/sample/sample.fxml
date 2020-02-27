@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -35,14 +36,19 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="20.0" stroke="BLACK" strokeType="INSIDE" width="35.0" />
                   <Label text="Good" />
                   <Region prefHeight="40.0" prefWidth="15.0" />
-                  <TextField fx:id="directoryText" prefHeight="26.0" prefWidth="359.0" promptText="Input Directory of Folder..." text="Input Directory of Folder...">
+                  <TextField fx:id="directoryText" editable="false" focusTraversable="false" prefHeight="26.0" prefWidth="359.0" promptText="Directory will show here...">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
                   </TextField>
                   <Region prefHeight="26.0" prefWidth="61.0" />
-                  <Button mnemonicParsing="false" onAction="#make" prefHeight="26.0" prefWidth="100.0" stylesheets="@style.css" text="Submit" />
+                  <Button mnemonicParsing="false" onAction="#choose" prefHeight="38.0" prefWidth="114.0" stylesheets="@style_choose.css" text="Choose File" />
                   <Region prefHeight="40.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#make" prefHeight="33.0" prefWidth="100.0" stylesheets="@style_proceed.css" text="Proceed" />
+                  <Region prefHeight="40.0" prefWidth="48.0" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Note: Remember that this program compares to every file in the directory, meaning that it will compare to itself also. The diagonal will result to a score of 1.00." wrappingWidth="243.56971740722656">
                      <font>
                         <Font size="10.0" />

@@ -27,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.stage.DirectoryChooser;
 
 public class Controller {
 
@@ -51,10 +52,21 @@ public class Controller {
     //TO KNOW NUMBER OF TIMES THAT THE MATRIX HAS TO REPEAT
     public int total_files;
 
+    //DIRECTORYCHOOSER
+    public void choose() {
+
+        DirectoryChooser chooser = new DirectoryChooser();
+        chooser.setTitle("Choose directory to check");
+
+        File file = chooser.showDialog(newPane.getScene().getWindow());
+
+        directory_path = file.getAbsolutePath();
+        directoryText.setText(directory_path);
+        directoryText.setVisible(true);
+    }
+
     //LAYOUT MAKER
     public void make() throws Exception {
-
-        directory_path = directoryText.getText();
 
         compare(paths);
 
